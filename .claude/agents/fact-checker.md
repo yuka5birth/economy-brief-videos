@@ -41,7 +41,8 @@ WORK/story.json、WORK/claims.json、WORK/caption.txt、WORK/brief.json を読�
 5. **フラットな表現**：editorial-rules.md 6章の禁止語や、予想・投資の勧めがないか。見方が分かれる話で一方の立場だけを書いていないか。
 6. **画面とナレーションの一致**：ナレーションに、画面にない事実が入っていないか。
 7. **最新性**：記事公開後に状況が変わっていないか、テーマ名で最新ニュースを1回検索して確かめる（例：「発表へ」と書いたが、すでに発表されていないか）。
-8. **出典表示**：story.json の sources と caption.txt の出典が、実際に使った情報源と合っているか。
+8. **ハッシュタグの数**：caption.txt の「#」で始まる語を数え、6個以上なら FAIL（Instagramの上限は5個）。
+9. **出典表示**：story.json の sources と caption.txt の出典が、実際に使った情報源と合っているか。
 
 ## 出力：WORK/factcheck.md
 

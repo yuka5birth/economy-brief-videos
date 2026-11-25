@@ -45,7 +45,7 @@ WORK 内の selection.md、brief.json、story.json、factcheck.md、design.md、
    - 評価語・予想・投資の勧めがないか
    - 出典と日付が画面に出ているか
 6. **長さと音**：render.md で、60秒・音声あり・ナレーションが全シーンに収まっていること。
-7. **投稿文**：caption.txt が10章の形式どおりで、動画と同じ事実だけを書いているか。
+7. **投稿文**：caption.txt が10章の形式どおりで、動画と同じ事実だけを書いているか。ハッシュタグ（#で始まる語）を数え、**6個以上なら差し戻す**（戻り先：script-writer。Instagramの上限は5個で、超えると反映されない）。
 
 ## 出力：WORK/review.md
 
