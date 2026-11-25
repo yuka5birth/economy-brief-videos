@@ -9,11 +9,11 @@
 | 動画置き場（GitHub） | `yuka5birth/economy-brief-videos`（公開）、フォルダ `kondate/`（経済ニュースの `videos/` とは分ける） |
 | 動画の公開URL | `https://raw.githubusercontent.com/yuka5birth/economy-brief-videos/main/kondate/<ファイル名>.mp4` |
 | Buffer の組織 | My Organization（`68e720bcf1f50a087b4a7497`） |
-| Buffer のチャンネル | **未設定**（献立用のInstagramアカウントを作成中）。決まったらここにアカウント名とチャンネルIDを書く |
+| Buffer のチャンネル | Instagram @kyou_no_yuugohan（`6b067a9a8541f09ecb984bc3`）。IDが変わっていたら `list_channels` で確かめる |
 | 投稿時刻 | 毎朝 9:00（Asia/Tokyo） |
 | Instagramの設定 | `type: reel`、`shouldShareToFeed: true`、`isAiGenerated: true`、`schedulingType: automatic` |
 
-**チャンネルが「未設定」のあいだは予約しない。** 動画・投稿文・レシピチェックの記録を SendUserFile で送り、SendUserMessage で「献立アカウントが未設定のため予約していません。手動で投稿するか、アカウントができたら教えてください」と伝える。投稿記録のステータスは `制作済` のまま。経済ニュースのチャンネル（@economy_brief_daily）には**絶対に予約しない**。
+**チャンネルが「未設定」のときは予約しない。** 動画・投稿文・レシピチェックの記録を SendUserFile で送り、SendUserMessage で「献立アカウントが未設定のため予約していません。手動で投稿するか、アカウントができたら教えてください」と伝える。投稿記録のステータスは `制作済` のまま。経済ニュースのチャンネル（@economy_brief_daily）には**絶対に予約しない**。
 
 ## 手順（チャンネルが設定済みのとき）
 

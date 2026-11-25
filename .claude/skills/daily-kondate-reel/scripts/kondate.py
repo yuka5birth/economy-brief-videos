@@ -620,6 +620,8 @@ def build_outro(st, d):
     for s_ in d["sub"]:
         t = text_img(s_, F("bold", 44), COCOA); sc.add(t, W // 2 - t.width // 2, y, 0.6, "up"); y += 64
     c = chip(d["cta"], MUSTARD, 46); sc.add(c, W // 2 - c.width // 2, y + 30, 0.8, "pop")
+    if d.get("handle"):
+        h = text_img(d["handle"], F("num", 44), CORAL); sc.add(h, W // 2 - h.width // 2, y + 128, 0.85, "up"); y += 60
     n = text_img(d["ai_note"], F("med", 28), COCOA_L); sc.add(n, W // 2 - n.width // 2, y + 150, 0.9, "up")
     return sc
 
