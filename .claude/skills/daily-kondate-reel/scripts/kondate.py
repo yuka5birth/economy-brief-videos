@@ -430,13 +430,17 @@ def build_hook(st, d):
     sc = Scene(); T = -9
     sc.add(chip(st["series"], CORAL, 40), 70, 205, T, "none")
     t = text_img(st["date_long"], F("bold", 36), COCOA_L); sc.add(t, W - 72 - t.width, 220, T, "none")
-    t = text_img("きょうの", F("black", 96), COCOA); sc.add(t, W // 2 - t.width // 2, 320, T, "none")
+    top = 300 if st.get("dish_line") else 320
+    t = text_img("きょうの", F("black", 96), COCOA); sc.add(t, W // 2 - t.width // 2, top, T, "none")
     t = text_img("夕ごはん", F("black", 170), CORAL, stroke=10, stroke_fill=WHITE)
-    sc.add(t, W // 2 - t.width // 2, 430, T, "none")
+    sc.add(t, W // 2 - t.width // 2, top + 105, T, "none")
+    ty = 700
+    if st.get("dish_line"):
+        dl = chip(st["dish_line"], COCOA, 40); sc.add(dl, W // 2 - dl.width // 2, top + 338, T, "none"); ty = 740
     tr, steam = tray(900)
-    sc.add_shadowed(tr, 90, 700, T, "none", dy=14, blur=18, alpha=70)
+    sc.add_shadowed(tr, 90, ty, T, "none", dy=14, blur=18, alpha=70)
     for (x, y) in steam:
-        sc.steam_add((90 + x - 60, 700 + y - 100, 1.0))
+        sc.steam_add((90 + x - 60, ty + y - 100, 1.0))
     # info row
     y0 = 1440
     xx = 90
@@ -781,11 +785,13 @@ def build_all(story):
 
 def check(story):
     errs = []
-    for k in ("output_name", "series", "style", "date_label", "date_long", "price_badge", "note", "tray", "scenes"):
+    for k in ("output_name", "series", "style", "date_label", "date_long", "dish_line", "price_badge", "note", "tray", "scenes"):
         if k not in story: errs.append(f"missing top-level key: {k}")
     if errs:
         for e in errs: print("ERROR:", e)
         return errs
+    if tw(story["dish_line"], F("black", 40)) > 880: errs.append("dish_line too long (max ~20 chars)")
+    if re.search(r"鶏(?!も|む)", "".join(sc.get("narration", "") for sc in story["scenes"])): errs.append("narration: write 鶏 as とり (pyopenjtalk reads 鶏 as ニワトリ)")
     types = [sc.get("type") for sc in story["scenes"]]
     if types[0] != "hook": errs.append("first scene must be hook")
     if types[-1] != "outro": errs.append("last scene must be outro")
